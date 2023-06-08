@@ -6,9 +6,16 @@ An easy-to-setup web template using
   * Bootstrap 5
   * PostgreSQL
 
-To start your Phoenix server:
+## Setup
 
-  * Run `mix setup` to install and setup dependencies
+Download and install dependencies
+
+  * Run `mix setup` 
+
+Download JavaScript dependencies
+
+  * `cd assets` 
+  * `npm install` 
 
 ## Create or Reset DB connection
 
