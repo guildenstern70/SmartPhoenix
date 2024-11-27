@@ -1,0 +1,21 @@
+<.flash_group flash={@flash} />
+
+    <div class="container mx-5 p-5">
+      <div class="p-3 mt-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-1">
+          <h1 class="display-5 fw-bold">Smart Phoenix</h1>
+          <p>
+            An easy to setup web template using:
+          </p>
+          <ul>
+            <li>Phoenix Framework</li>
+            <li>SqlLite</li>
+            <li>Bootstrap 5</li>
+          </ul>
+          <a href="/dev/dashboard/" class="btn btn-primary btn-lg" type="button">Dashboard</a>
+          <p>
+          <small class="version">SmartPhoenix v.<%= Application.spec(:smart_phoenix, :vsn) %></small>
+          </p>
+        </div>
+      </div>
+    </div>

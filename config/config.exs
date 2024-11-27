@@ -7,18 +7,20 @@
 # General application configuration
 import Config
 
-config :smart_phoenix,
-  ecto_repos: [SmartPhoenix.Repo]
+config :phoenixlite,
+  ecto_repos: [Phoenixlite.Repo],
+  generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :smart_phoenix, SmartPhoenixWeb.Endpoint,
+config :phoenixlite, PhoenixliteWeb.Endpoint,
   url: [host: "localhost"],
+  adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: SmartPhoenixWeb.ErrorHTML, json: SmartPhoenixWeb.ErrorJSON],
+    formats: [html: PhoenixliteWeb.ErrorHTML, json: PhoenixliteWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: SmartPhoenix.PubSub,
-  live_view: [signing_salt: "LidM79Xu"]
+  pubsub_server: Phoenixlite.PubSub,
+  live_view: [signing_salt: "IjwMIh/W"]
 
 # Configures the mailer
 #
@@ -27,25 +29,26 @@ config :smart_phoenix, SmartPhoenixWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :smart_phoenix, SmartPhoenix.Mailer, adapter: Swoosh.Adapters.Local
+config :phoenixlite, Phoenixlite.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",
-  default: [
+  phoenixlite: [
     args:
       ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
-# Configure SASS
+# Configures Dart Sass (the version is required)
 config :dart_sass,
-  version: "1.54.5",
+  version: "1.81.0",
   default: [
     args: ~w(css/app.scss ../priv/static/assets/app.css),
     cd: Path.expand("../assets", __DIR__)
   ]
+
 
 # Configures Elixir's Logger
 config :logger, :console,

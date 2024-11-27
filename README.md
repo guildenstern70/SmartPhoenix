@@ -4,7 +4,7 @@ An easy-to-setup web template using
 
   * Phoenix Framework
   * Bootstrap 5
-  * PostgreSQL
+  * SqlLite
 
 ## Setup
 
@@ -15,7 +15,7 @@ Download and install dependencies
 Download JavaScript dependencies
 
   * `cd assets` 
-  * `npm install` 
+  * `yarn install` 
 
 ## Create or Reset DB connection
 
